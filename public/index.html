@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="output.css">
+  
+  <title>Frontend Mentor | Interactive card details form</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+    input::placeholder {
+      padding-left: 10px;
+    }
+    input[type="number"]::-webkit-outer-spin-button, 
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  } 
+  input[type="number"] {
+    -moz-appearance: textfield;
+}
+  </style>
+</head>
+<body> 
+
+
+  <!-- laptop and big screen code -->
+
+  <div class="hidden md:hidden lg:block lg:flex">
+    <img src="images/bg-main-desktop.png" alt="">
+    <div>
+      <img style="width: 30vw; margin-left: -85%; margin-top: 20%;" src="images/bg-card-front.png" alt="">
+      <div style="margin-top: -45%; margin-left: -75%;">
+        <svg width="84" height="47" fill="green" xmlns="http://www.w3.org/2000/svg"><ellipse cx="23.478" cy="23.5" rx="23.478" ry="23.5" fill="#fff"/><path d="M83.5 23.5c0 5.565-4.507 10.075-10.065 10.075-5.559 0-10.065-4.51-10.065-10.075 0-5.565 4.506-10.075 10.065-10.075 5.558 0 10.065 4.51 10.065 10.075Z" stroke="#fff"/></svg>
+        <p id="number" class="mt-5 text-whitee">OOOO OOOO OOOO OOOO</p>
+        <div class="flex mt-5">
+          <p id="name" class="text-sm text-whitee">INAOLAJI RIDWAN</p>
+          <p id="monthyear" class="text-sm ms-20 text-whitee">OO/OO</p>
+        </div>
+      </div>
+      <div>
+        <img style="width: 30vw; margin-left: -70%; margin-top: 14%;" src="images/bg-card-back.png" alt="">
+        <p id="backdisplay" style="margin-top: -31%;" class="text-sm text-whitee">OOO</p>
+      </div>
+    </div>   
+    <section id="normalsection" class="block" style="margin-left: -12%; margin-top: 10%;" >
+        <div>
+          <p>CARDHOLDER NAME</p>
+          <input id="cardholder" style="border: 1px solid rgb(230, 230, 230); width: 100%; border-radius: 10px; " class="h-9 mt-5" type="text" placeholder="Inaolaji Ridwan">
+        </div>
+        <div>
+          <p class="mt-5">CARD NUMBER</p>
+          <input id="cardnumber" style="border: 1px solid rgb(215, 212, 212); width: 100%; border-radius: 10px; " class="h-9 mt-3" type="text" placeholder="e.g 1234 5678 9123 OOOO">
+        </div>
+        <div class="flex mt-7">
+          <div class="flex ">
+            <div>
+              <div>
+                <div class="flex text-sm">
+                  <p>EXP.</p>
+                  <P>DTAE</P>
+                  <p class="text-sm ms-3" >(MM/YYY)</p>
+                </div>
+                <div class="flex">
+                  <input id="month" style="border: 1px solid rgb(213, 212, 212); width: 50px; border-radius: 10px;" type="text" placeholder="MM">
+                  <input id="year" style="border: 1px solid rgb(222, 221, 221); width: 50px; border-radius: 10px;" class="ms-7" type="text" placeholder="YY">
+                </div>  
+              </div>
+            </div>
+          </div>
+          <div class="ms-8">
+            <p>CVC</p>
+            <input id="cvc" style="border: 1px solid rgb(220, 218, 218); border-radius: 10px; width: 90px;" type="number" placeholder="e.g 123">
+          </div>
+        </div>
+
+        <div class="mt-5">
+          <button  id="btn" style="width: 100%; border-radius: 10px;" class="bg-verydarkgrayish text-whitee h-9">Confirm</button>
+        </div>
+    </section>
+
+    <section id="thankyou" class=" hidden md:hidden lg:hidden xl:hidden" style="margin-top: 15%; width: 30%; margin-left: -10%;">
+        <svg style="margin-left: 40%;" width="80" height="80" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="40" r="40" fill="url(#a)"/><path d="M28 39.92 36.08 48l16-16" stroke="#fff" stroke-width="3"/><defs><linearGradient id="a" x1="-23.014" y1="11.507" x2="0" y2="91.507" gradientUnits="userSpaceOnUse"><stop stop-color="#6348FE"/><stop offset="1" stop-color="#610595"/></linearGradient></defs></svg>
+        <div class="text-center">
+          <p style="" class=" font-extrabold mt-9">THANK YOU  !</p>
+        <p style="padding-left: 3%;" class="text-sm mt-2 ">We've added your card details</p>
+        </div>
+        
+        <button onclick="btndisplay()" style="width: 80%; margin-left: 10%; border-radius: 10px;" class="bg-verydarkgrayish text-whitee h-9 mt-4">Continue</button>
+    </section>
+
+  </div>
+
+  <!-- tablet and phones screen -->
+  
+    <div class="lg:flex">
+      <img style="width: 100vw;" class="md:block md:w-96 lg:hidden xl:hidden" src="images/bg-main-mobile.png" alt="">
+      <div>
+        <img style="width: 85vw; margin-top: -55%; margin-left: 10%;" class="md:block lg:hidden xl:hidden" src="images/bg-card-back.png" alt="">
+        <p  id="backdisplay2" style="margin-top: -27%; margin-left: 77%;" class="text-white lowercase text-sm">OOO</p>
+      </div>
+      <div class="md:mt-8 lg:hidden">
+         <img style="width: 80vw ; margin-left: 3%; margin-top: 1.5%;" class="md:block  lg:hidden xl:hidden" src="images/bg-card-front.png" alt="">
+         <div style="margin-left: 5%;">
+          <svg style="margin-top: -40%; margin-left: 6%; " width="84" height="47" fill="yellow" xmlns="http://www.w3.org/2000/svg"><ellipse cx="23.478" cy="23.5" rx="23.478" ry="23.5" fill="#fff"/><path d="M83.5 23.5c0 5.565-4.507 10.075-10.065 10.075-5.559 0-10.065-4.51-10.065-10.075 0-5.565 4.506-10.075 10.065-10.075 5.558 0 10.065 4.51 10.065 10.075Z" stroke="#fff"/></svg>
+          <p id="number2" style="margin-left: 10%; margin-top: 5%;" class=" text-md space-x-10 text-whitee md:pt-11  md:text-3xl " >OOOO OOOO OOOO OOOO</p>
+          <div style="margin-top: 5%; margin-left: 5%;" class="flex md:pt-11">
+            <p id="name2" class="text-white text-xs md:text-xl">INAOLAJI RIDWAN</p>
+            <p id="monthyear2" style="margin-left: 30%;" class="lowercase text-xs text-white md:text-xl md:ps-12 md:uppercase ">OO/OO</p>
+          </div>
+
+         </div>
+        <section id="normalsection2" class="block" style="margin-top: 20%; margin-left: 10%;">
+          <div>
+            <p>CARD HOLDER NAME</p>
+            <input id="cardholder2" style="border: 1px solid rgb(231, 230, 230); border-radius: 10px; width: 80%;" class="h-12 mt-2"  type="text" placeholder="e.g inaolaji Ridwan">
+          </div>
+          <div class="mt-8">
+            <p>CARD NUMBER</p>
+            <input id="cardnumber2" style="border: 1px solid rgb(222, 219, 219); width: 80%; border-radius: 10px;" class="h-12 mt-2" type="text" placeholder="e.g 1234 5678 9123 OOO">
+          </div>
+          <div style="" class="flex mt-8">
+            <div class="flex">
+              <div>
+                <p class="text-sm">EXP. DATE</p>
+                <input id="month2" style="border: 1px solid rgb(221, 221, 221); width: 80%; height: 70%; border-radius: 10px; text-align: center;" class="mt-2" type="number" placeholder="MM">
+              </div>
+              <div>
+                <p class="text-sm">(MM/YY)</p>
+                <input id="year2" style="border: 1px solid rgb(238, 234, 234) ; width: 80%; height: 70%; border-radius: 10px; text-align: center;" class="mt-2" type="number" placeholder="YY">
+              </div>
+            </div>
+            <div>
+              <p>CVC</p>
+              <input id="cvc2" style="border: 1px solid rgb(206, 201, 201); width: 75%; height: 70%; border-radius: 10px; text-align: center;" class="mt-1" type="number" placeholder="e.g 123">
+            </div>
+          </div>
+          <button id="btn2" style="width: 80%; border-radius: 10px; margin-left: 8%; margin-top: 10%;" class="bg-verydarkgrayish text-whitee h-11">Confirm</button>
+        </section>  
+        
+        <section id="thankyou2" style="margin-top: 18%;" class="hidden">
+           <svg style="background-color: rgb(98,58,226); border-radius: 50%; margin-left: 43%" width="80" height="80" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="40" r="40" fill="url(#a)"/><path d="M28 39.92 36.08 48l16-16" stroke="#fff" stroke-width="3"/><defs><linearGradient id="a" x1="-23.014" y1="11.507" x2="0" y2="91.507" gradientUnits="userSpaceOnUse"><stop stop-color="#6348FE"/><stop offset="1" stop-color="#610595"/></linearGradient></defs></svg>
+        <div class="text-center">
+          <p style="" class=" font-extrabold mt-9">THANK YOU  !</p>
+        <p style="padding-left: 3%;" class="text-sm mt-2 ">We've added your card details</p>
+        </div>
+        
+        <button  onclick="congrat()" style="width: 80%; margin-left: 10%; border-radius: 10px;" class="bg-verydarkgrayish text-whitee h-9 mt-4">Continue</button>
+          
+        </section>
+      </div>
+      </div>
+    </div>
+
+
+        
+
+
+  
+  
+  <div class="attribution mt-14">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Inaolaji A. Ridwan</a>.
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
